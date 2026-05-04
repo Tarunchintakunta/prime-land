@@ -1,26 +1,18 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap, ScrollTrigger, registerGsap } from "@/lib/gsap";
 import { useScrollStore } from "@/components/providers/ScrollStore";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import {
-  IconLeadership,
-  IconTech,
-  IconFinance,
-  IconCreative,
-  IconProfessional,
-  IconAcademic,
-  IconAdmissions,
-} from "./CategoryIcons";
-
-type IconComponent = React.ComponentType<{ className?: string }>;
 
 interface Category {
   number: string;
   name: string;
   description: string;
-  Icon: IconComponent;
+  /** Hero image for the card mid-section (served from /public/categories). */
+  imageSrc: string;
+  imageAlt: string;
 }
 
 const CATEGORIES: Category[] = [
@@ -29,49 +21,56 @@ const CATEGORIES: Category[] = [
     name: "Business & Leadership",
     description:
       "Strategy, operations, and the soft skills that move organizations. For managers, founders, and those on the way there.",
-    Icon: IconLeadership,
+    imageSrc: "/categories/01-business-leadership.png",
+    imageAlt: "Team in a meeting with a growth arrow graphic",
   },
   {
     number: "02",
     name: "Technology & Data",
     description:
       "Engineering, AI, and the infrastructure of the modern internet. Applied, not academic.",
-    Icon: IconTech,
+    imageSrc: "/categories/02-technology-data.png",
+    imageAlt: "Physical and digital analytics dashboards",
   },
   {
     number: "03",
     name: "Finance & Markets",
     description:
       "Capital markets, valuation, and the numbers behind every decision. From analyst to executive.",
-    Icon: IconFinance,
+    imageSrc: "/categories/03-finance-markets.png",
+    imageAlt: "3D bar chart and magnifying glass over financial reports",
   },
   {
     number: "04",
     name: "Creative & Design",
     description:
       "Brand, product, and the craft of making things people love. Taste is a trainable skill.",
-    Icon: IconCreative,
+    imageSrc: "/categories/04-creative-design.png",
+    imageAlt: "Designer workspace with laptop and monitors",
   },
   {
     number: "05",
     name: "Professional Skills",
     description:
       "Communication, negotiation, and the daily practice of working well with others.",
-    Icon: IconProfessional,
+    imageSrc: "/categories/05-professional-skills.png",
+    imageAlt: "Business presentation with charts on a whiteboard",
   },
   {
     number: "06",
     name: "Academic Prep",
     description:
       "Standardized tests, rigorous fundamentals, and the discipline to reach the top of any cohort.",
-    Icon: IconAcademic,
+    imageSrc: "/categories/06-academic-prep.png",
+    imageAlt: "Stack of books with a graduation cap and ladders",
   },
   {
     number: "07",
     name: "Business School Admissions",
     description:
       "Essays, interviews, and the positioning work that gets you into the programs you want.",
-    Icon: IconAdmissions,
+    imageSrc: "/categories/05-professional-skills.png",
+    imageAlt: "Professional meeting and presentation skills",
   },
 ];
 
@@ -162,10 +161,10 @@ export function Chapter4Categories() {
           className="flex items-stretch gap-[clamp(1rem,2vw,2rem)] pl-[clamp(1rem,4vw,4rem)] pr-[clamp(1rem,4vw,4rem)]"
           style={{ willChange: "transform" }}
         >
-          {CATEGORIES.map(({ number, name, description, Icon }) => (
+          {CATEGORIES.map(({ number, name, description, imageSrc, imageAlt }) => (
             <article
               key={number}
-              className="group relative flex w-[80vw] shrink-0 flex-col justify-between rounded-2xl border border-[rgba(10,10,15,0.08)] bg-white/40 p-8 backdrop-blur transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:bg-white/60 md:w-[40vw] lg:w-[28vw] lg:p-10"
+              className="group relative flex w-[80vw] shrink-0 flex-col gap-6 rounded-2xl border border-[rgba(10,10,15,0.08)] bg-white/40 p-8 backdrop-blur transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:bg-white/60 md:w-[40vw] lg:w-[28vw] lg:gap-8 lg:p-10"
               style={{ minHeight: "60vh" }}
             >
               {/* gold inset border fades in on hover */}
@@ -173,19 +172,26 @@ export function Chapter4Categories() {
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 rounded-2xl border border-[var(--gold)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               />
-              <div className="flex items-start justify-between">
-                <span
-                  className="display"
-                  style={{
-                    fontSize: "clamp(3rem, 5vw, 4.5rem)",
-                    color: "var(--gold-dark)",
-                  }}
-                >
-                  {number}
-                </span>
-                <Icon className="text-[var(--ink)]/60 transition-colors duration-500 group-hover:text-[var(--gold-dark)]" />
+              <span
+                className="display shrink-0"
+                style={{
+                  fontSize: "clamp(3rem, 5vw, 4.5rem)",
+                  color: "var(--gold-dark)",
+                }}
+              >
+                {number}
+              </span>
+              <div className="relative min-h-[clamp(11rem,26vh,18rem)] w-full flex-1 overflow-hidden rounded-xl bg-[var(--mist)] shadow-sm ring-1 ring-[rgba(10,10,15,0.08)] transition-[box-shadow] duration-500 group-hover:ring-[var(--gold)]/35">
+                <Image
+                  src={imageSrc}
+                  alt={imageAlt}
+                  fill
+                  sizes="(max-width: 768px) 80vw, (max-width: 1024px) 40vw, 28vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  quality={85}
+                />
               </div>
-              <div>
+              <div className="shrink-0">
                 <h3
                   className="headline"
                   style={{
