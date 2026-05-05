@@ -416,7 +416,7 @@ function CertificateIllustration() {
     >
       <div
         data-cert-piece
-        className="absolute inset-0 rounded-lg border border-[var(--gold)]/70 bg-gradient-to-br from-[#1a1a24] to-[#0a0a0f] shadow-2xl"
+        className="absolute inset-0 rounded-lg border border-[var(--gold)]/70 bg-gradient-to-br from-[#112240] to-[#0b192f] shadow-2xl"
       />
       <div
         data-cert-piece

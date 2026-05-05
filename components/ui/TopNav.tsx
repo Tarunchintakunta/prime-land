@@ -65,8 +65,8 @@ export function TopNav() {
         style={{
           background:
             theme === "paper"
-              ? "linear-gradient(to bottom, rgba(255,252,245,0.88), rgba(255,252,245,0))"
-              : "linear-gradient(to bottom, rgba(10,25,47,0.88), rgba(10,25,47,0))",
+              ? "rgba(255,252,245,0.88)"
+              : "rgba(11,25,47,0.88)",
           backdropFilter: "blur(10px)",
           color: theme === "paper" ? "var(--ink)" : "white",
         }}

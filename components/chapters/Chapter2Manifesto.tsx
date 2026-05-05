@@ -106,7 +106,7 @@ export function Chapter2Manifesto() {
             fontSize: "clamp(2rem, 5.5vw, 4.75rem)",
             lineHeight: 1.18,
             color: "var(--text-primary)",
-            textShadow: "0 1px 14px rgba(10,25,47,0.35)",
+            textShadow: "0 1px 14px rgba(11,25,47,0.35)",
           }}
         >
           {tokens.map((t, i) => {

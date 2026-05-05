@@ -24,7 +24,7 @@ export function FallbackHero() {
           <radialGradient id="ico-fill" cx="0.5" cy="0.5" r="0.5">
             <stop offset="0%" stopColor="#2563eb" stopOpacity="0.85" />
             <stop offset="60%" stopColor="#e0b458" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#0a192f" stopOpacity="0" />
+            <stop offset="100%" stopColor="#0b192f" stopOpacity="0" />
           </radialGradient>
         </defs>
         {/* A stylized icosahedral hint — triangle fan around the origin */}

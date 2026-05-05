@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { gsap, registerGsap } from "@/lib/gsap";
 
 /**
@@ -13,16 +12,14 @@ import { gsap, registerGsap } from "@/lib/gsap";
  */
 export function Loader() {
   const overlayRef = useRef<HTMLDivElement>(null);
-  const logoWrapRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLSpanElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [done, setDone] = useState(false);
 
   useEffect(() => {
     registerGsap();
     const overlay = overlayRef.current;
-    const logoWrap = logoWrapRef.current;
-    const line = lineRef.current;
-    if (!overlay || !logoWrap || !line) return;
+    const video = videoRef.current;
+    if (!overlay || !video) return;
 
     // Honor prefers-reduced-motion — skip the theater, show content.
     const reduced = window.matchMedia?.(
@@ -35,47 +32,14 @@ export function Loader() {
       return;
     }
 
-    // Wait for fonts to settle so the logomark doesn't shift.
-    const fontsReady =
-      "fonts" in document ? document.fonts.ready : Promise.resolve();
-
     let tl: gsap.core.Timeline | null = null;
-    fontsReady.then(() => {
+    let fallbackTimer: number | null = null;
+    let completed = false;
+
+    const complete = () => {
+      if (completed) return;
+      completed = true;
       tl = gsap.timeline();
-      tl.fromTo(
-        logoWrap,
-        { opacity: 0, y: 14, scale: 0.96, filter: "blur(6px)" },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          filter: "blur(0px)",
-          duration: 0.9,
-          ease: "expo.out",
-        }
-      );
-      tl.to(
-        logoWrap,
-        {
-          filter: "drop-shadow(0 0 22px rgba(224,180,88,0.33))",
-          duration: 0.6,
-          ease: "sine.inOut",
-          yoyo: true,
-          repeat: 1,
-        },
-        "-=0.15"
-      );
-      tl.fromTo(
-        line,
-        { scaleX: 0 },
-        {
-          scaleX: 1,
-          duration: 1.2,
-          ease: "expo.out",
-          transformOrigin: "left",
-        },
-        "-=0.2"
-      );
       tl.to(overlay, {
         opacity: 0,
         duration: 0.8,
@@ -87,10 +51,24 @@ export function Loader() {
           window.dispatchEvent(new Event("pl:loader-complete"));
         },
       });
+    };
+
+    const onEnded = () => complete();
+    const onError = () => complete();
+    video.addEventListener("ended", onEnded);
+    video.addEventListener("error", onError);
+
+    video.playbackRate = 2;
+    video.play().catch(() => {
+      fallbackTimer = window.setTimeout(complete, 2000);
     });
+    fallbackTimer = window.setTimeout(complete, 5000);
 
     return () => {
       tl?.kill();
+      video.removeEventListener("ended", onEnded);
+      video.removeEventListener("error", onError);
+      if (fallbackTimer) window.clearTimeout(fallbackTimer);
     };
   }, []);
 
@@ -102,23 +80,15 @@ export function Loader() {
       aria-hidden="true"
       className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[var(--ink)]"
     >
-      <div ref={logoWrapRef} className="will-change-transform">
-        <Image
-          src="/brand/logo-dark.svg"
-          alt="Prime Learning"
-          width={304}
-          height={100}
-          className="h-[75px] w-auto"
-          priority
-        />
-      </div>
-      <div className="mt-8 h-px w-[min(320px,60vw)] overflow-hidden bg-white/10">
-        <span
-          ref={lineRef}
-          className="block h-full w-full bg-[var(--gold)]"
-          style={{ transform: "scaleX(0)", transformOrigin: "left" }}
-        />
-      </div>
+      <video
+        ref={videoRef}
+        className="h-auto w-[min(980px,94vw)]"
+        muted
+        playsInline
+        preload="auto"
+      >
+        <source src="/brand/prime-logo-animation.mp4" type="video/mp4" />
+      </video>
     </div>
   );
 }

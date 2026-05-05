@@ -4,7 +4,7 @@
    Design tokens — Prime Learning
    --------------------------------------------------------- */
 @theme {
-  --color-ink: #0a192f;
+  --color-ink: #0b192f;
   --color-paper: #fffcf5;
   --color-gold: #e0b458;
   --color-gold-bright: #f2d184;
@@ -19,7 +19,7 @@
 }
 
 :root {
-  --ink: #0a192f;
+  --ink: #0b192f;
   --paper: #fffcf5;
 
   /* Two-tier gold system.
