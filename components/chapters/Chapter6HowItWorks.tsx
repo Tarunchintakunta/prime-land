@@ -345,10 +345,10 @@ function BrowseIllustration() {
           style={{
             background:
               i % 3 === 0
-                ? "linear-gradient(135deg, #5b6cff 0%, #1a1a24 100%)"
+                ? "rgba(37,99,235,0.45)"
                 : i % 3 === 1
-                  ? "linear-gradient(135deg, #d4a574 0%, #1a1a24 100%)"
-                  : "linear-gradient(135deg, #1a1a24 0%, #5b6cff 100%)",
+                  ? "rgba(224,180,88,0.38)"
+                  : "rgba(17,34,64,0.5)",
           }}
         >
           <span
@@ -416,7 +416,7 @@ function CertificateIllustration() {
     >
       <div
         data-cert-piece
-        className="absolute inset-0 rounded-lg border border-[var(--gold)]/70 bg-gradient-to-br from-[#112240] to-[#0b192f] shadow-2xl"
+        className="absolute inset-0 rounded-lg border border-[var(--gold)]/70 bg-[#112240] shadow-2xl"
       />
       <div
         data-cert-piece

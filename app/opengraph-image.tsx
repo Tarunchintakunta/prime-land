@@ -21,8 +21,7 @@ export default function OG() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background:
-            "radial-gradient(ellipse at center, #1a1a24 0%, #0a0a0f 60%, #000 100%)",
+          background: "#0b192f",
           color: "white",
           fontFamily: "serif",
           position: "relative",

@@ -7,7 +7,7 @@ export interface Course {
   image: string;
   /** Short alt text for a11y (visual-only decoration uses ""). */
   imageAlt: string;
-  /** Branded gradient drawn OVER the image as a translucent wash. */
+  /** Branded solid wash drawn over the image. */
   gradient: string;
   pattern: "dots" | "grid" | "lines" | "waves";
 }
@@ -21,8 +21,7 @@ export const COURSES: Record<string, Course[]> = {
       priceAed: 1890,
       image: "/courses/ai/1.jpg",
       imageAlt: "Abstract imagery evoking large language models",
-      gradient:
-        "linear-gradient(135deg, rgba(91,108,255,0.75) 0%, rgba(26,26,36,0.65) 55%, rgba(212,165,116,0.45) 110%)",
+      gradient: "rgba(37,99,235,0.45)",
       pattern: "dots",
     },
     {
@@ -32,8 +31,7 @@ export const COURSES: Record<string, Course[]> = {
       priceAed: 1290,
       image: "/courses/ai/2.jpg",
       imageAlt: "AI imagery for business leaders",
-      gradient:
-        "linear-gradient(135deg, rgba(212,165,116,0.7) 0%, rgba(91,108,255,0.55) 85%)",
+      gradient: "rgba(224,180,88,0.4)",
       pattern: "grid",
     },
     {
@@ -43,8 +41,7 @@ export const COURSES: Record<string, Course[]> = {
       priceAed: 1590,
       image: "/courses/ai/3.jpg",
       imageAlt: "Generative AI visualization for product teams",
-      gradient:
-        "linear-gradient(160deg, rgba(26,26,36,0.75) 0%, rgba(91,108,255,0.55) 80%)",
+      gradient: "rgba(17,34,64,0.45)",
       pattern: "lines",
     },
     {
@@ -54,8 +51,7 @@ export const COURSES: Record<string, Course[]> = {
       priceAed: 2190,
       image: "/courses/ai/4.jpg",
       imageAlt: "Imagery evoking AI safety and alignment",
-      gradient:
-        "linear-gradient(200deg, rgba(10,10,15,0.7) 0%, rgba(212,165,116,0.5) 100%)",
+      gradient: "rgba(11,25,47,0.5)",
       pattern: "waves",
     },
   ],
@@ -67,8 +63,7 @@ export const COURSES: Record<string, Course[]> = {
       priceAed: 1490,
       image: "/courses/data-science/1.jpg",
       imageAlt: "Data science imagery with statistical motifs",
-      gradient:
-        "linear-gradient(135deg, rgba(26,26,36,0.7) 0%, rgba(91,108,255,0.55) 100%)",
+      gradient: "rgba(17,34,64,0.45)",
       pattern: "grid",
     },
     {
@@ -78,8 +73,7 @@ export const COURSES: Record<string, Course[]> = {
       priceAed: 990,
       image: "/courses/data-science/2.jpg",
       imageAlt: "Abstract visualization of structured data",
-      gradient:
-        "linear-gradient(135deg, rgba(91,108,255,0.7) 0%, rgba(212,165,116,0.5) 100%)",
+      gradient: "rgba(37,99,235,0.42)",
       pattern: "lines",
     },
     {
@@ -89,8 +83,7 @@ export const COURSES: Record<string, Course[]> = {
       priceAed: 1690,
       image: "/courses/data-science/3.jpg",
       imageAlt: "Code-like abstract data visualization",
-      gradient:
-        "linear-gradient(160deg, rgba(10,10,15,0.7) 0%, rgba(91,108,255,0.6) 80%)",
+      gradient: "rgba(11,25,47,0.52)",
       pattern: "dots",
     },
     {
@@ -100,8 +93,7 @@ export const COURSES: Record<string, Course[]> = {
       priceAed: 890,
       image: "/courses/data-science/4.jpg",
       imageAlt: "Data visualization storytelling imagery",
-      gradient:
-        "linear-gradient(200deg, rgba(212,165,116,0.7) 0%, rgba(26,26,36,0.6) 100%)",
+      gradient: "rgba(224,180,88,0.38)",
       pattern: "waves",
     },
   ],
@@ -113,8 +105,7 @@ export const COURSES: Record<string, Course[]> = {
       priceAed: 2490,
       image: "/courses/product-management/1.jpg",
       imageAlt: "Imagery evoking product strategy",
-      gradient:
-        "linear-gradient(135deg, rgba(212,165,116,0.7) 0%, rgba(10,10,15,0.6) 100%)",
+      gradient: "rgba(224,180,88,0.42)",
       pattern: "dots",
     },
     {
@@ -124,8 +115,7 @@ export const COURSES: Record<string, Course[]> = {
       priceAed: 1490,
       image: "/courses/product-management/2.jpg",
       imageAlt: "Abstract imagery for product discovery workflow",
-      gradient:
-        "linear-gradient(135deg, rgba(91,108,255,0.7) 0%, rgba(26,26,36,0.6) 100%)",
+      gradient: "rgba(37,99,235,0.42)",
       pattern: "lines",
     },
     {
@@ -135,8 +125,7 @@ export const COURSES: Record<string, Course[]> = {
       priceAed: 1290,
       image: "/courses/product-management/3.jpg",
       imageAlt: "Imagery evoking pricing and growth strategy",
-      gradient:
-        "linear-gradient(160deg, rgba(212,165,116,0.7) 0%, rgba(91,108,255,0.55) 100%)",
+      gradient: "rgba(224,180,88,0.4)",
       pattern: "grid",
     },
     {
@@ -146,8 +135,7 @@ export const COURSES: Record<string, Course[]> = {
       priceAed: 1890,
       image: "/courses/product-management/4.jpg",
       imageAlt: "Imagery for technical product management",
-      gradient:
-        "linear-gradient(200deg, rgba(26,26,36,0.7) 0%, rgba(212,165,116,0.55) 100%)",
+      gradient: "rgba(17,34,64,0.45)",
       pattern: "waves",
     },
   ],

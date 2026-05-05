@@ -127,16 +127,6 @@ export function ChapterTestimonials() {
       style={{ backgroundColor: "var(--ink)" }}
       aria-labelledby="testimonials-heading"
     >
-      {/* Subtle radial gold glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(circle at 50% 30%, rgba(212,165,116,0.07), transparent 60%)",
-        }}
-      />
-
       <div ref={headingRef} className="relative mx-auto max-w-7xl px-6 text-center">
         <Eyebrow>Loved by learners</Eyebrow>
         <h2
@@ -161,21 +151,8 @@ export function ChapterTestimonials() {
         <MarqueeRow items={ROW_B} direction="right" />
       </div>
 
-      {/* Edge fades */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32"
-        style={{
-          background: "linear-gradient(to right, var(--ink), transparent)",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32"
-        style={{
-          background: "linear-gradient(to left, var(--ink), transparent)",
-        }}
-      />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-[var(--ink)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-[var(--ink)]" />
     </section>
   );
 }

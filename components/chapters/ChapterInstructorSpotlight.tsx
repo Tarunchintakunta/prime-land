@@ -181,7 +181,7 @@ export function ChapterInstructorSpotlight() {
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="animate-ken-burns object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-black/45" />
             <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs">
               <span
                 className="display text-base"
@@ -227,7 +227,7 @@ export function ChapterInstructorSpotlight() {
                   sizes="(max-width: 768px) 50vw, 25vw"
                   className="object-cover grayscale transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:grayscale-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-black/50" />
               </div>
               <figcaption className="mt-4">
                 <div

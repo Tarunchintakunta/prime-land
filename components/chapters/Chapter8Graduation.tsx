@@ -69,7 +69,7 @@ export function Chapter8Graduation() {
       </div>
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(10,10,15,0.8)_85%)]"
+        className="pointer-events-none absolute inset-0 bg-[rgba(11,25,47,0.5)]"
       />
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
         <Eyebrow>Your turn</Eyebrow>

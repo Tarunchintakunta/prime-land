@@ -80,7 +80,7 @@ export function Loader() {
       aria-hidden="true"
       className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[var(--ink)]"
     >
-      <div className="relative w-[min(860px,92vw)] overflow-hidden [mask-image:radial-gradient(circle,black_34%,black_48%,transparent_72%)]">
+      <div className="relative w-[min(860px,92vw)] overflow-hidden">
         <video
           ref={videoRef}
           className="h-auto w-full scale-[1.18]"
