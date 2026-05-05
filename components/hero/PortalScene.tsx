@@ -3,7 +3,7 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { EffectComposer, Bloom, ChromaticAberration } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
-import { Vector2 } from "three";
+import { Color, NoToneMapping, Vector2 } from "three";
 import { useEffect, useRef, useState } from "react";
 import { ParticleIcosahedron } from "./ParticleIcosahedron";
 import { useScrollStore } from "@/components/providers/ScrollStore";
@@ -82,9 +82,13 @@ export function PortalScene({ mode = "idle", source = "portal" }: Props) {
     >
       <Canvas
         dpr={[1, 2]}
-        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+        gl={{ antialias: true, alpha: false, powerPreference: "high-performance" }}
         camera={{ position: [0, 0, 5], fov: 45, near: 0.1, far: 100 }}
-        style={{ background: "transparent" }}
+        style={{ background: "#0b192f" }}
+        onCreated={({ gl }) => {
+          gl.setClearColor(new Color("#0b192f"), 1);
+          gl.toneMapping = NoToneMapping;
+        }}
       >
         <SceneInterior mode={mode} source={source} />
       </Canvas>

@@ -80,15 +80,17 @@ export function Loader() {
       aria-hidden="true"
       className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[var(--ink)]"
     >
-      <video
-        ref={videoRef}
-        className="h-auto w-[min(980px,94vw)]"
-        muted
-        playsInline
-        preload="auto"
-      >
-        <source src="/brand/prime-logo-animation.mp4" type="video/mp4" />
-      </video>
+      <div className="relative w-[min(860px,92vw)] overflow-hidden [mask-image:radial-gradient(circle,black_34%,black_48%,transparent_72%)]">
+        <video
+          ref={videoRef}
+          className="h-auto w-full scale-[1.18]"
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/brand/prime-logo-animation.mp4" type="video/mp4" />
+        </video>
+      </div>
     </div>
   );
 }
