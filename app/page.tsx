@@ -4,6 +4,8 @@ import { Chapter3Stats } from "@/components/chapters/Chapter3Stats";
 import { Chapter4Categories } from "@/components/chapters/Chapter4Categories";
 import { Chapter5Courses } from "@/components/chapters/Chapter5Courses";
 import { Chapter6HowItWorks } from "@/components/chapters/Chapter6HowItWorks";
+import { ChapterInstructorSpotlight } from "@/components/chapters/ChapterInstructorSpotlight";
+import { ChapterTestimonials } from "@/components/chapters/ChapterTestimonials";
 import { Chapter7Plans } from "@/components/chapters/Chapter7Plans";
 import { Chapter8Graduation } from "@/components/chapters/Chapter8Graduation";
 import { Footer } from "@/components/ui/Footer";
@@ -25,6 +27,8 @@ export default function HomePage() {
         <Chapter4Categories />
         <Chapter5Courses />
         <Chapter6HowItWorks />
+        <ChapterInstructorSpotlight />
+        <ChapterTestimonials />
         <Chapter7Plans />
         <Chapter8Graduation />
       </main>

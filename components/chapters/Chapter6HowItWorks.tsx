@@ -320,16 +320,28 @@ export function Chapter6HowItWorks() {
 }
 
 function BrowseIllustration() {
+  const tiles = [
+    { title: "AI", subtitle: "Beginner" },
+    { title: "Data", subtitle: "Analytics" },
+    { title: "Design", subtitle: "Studio" },
+    { title: "Finance", subtitle: "Markets" },
+    { title: "Product", subtitle: "Strategy" },
+    { title: "Coding", subtitle: "Practice" },
+    { title: "Leadership", subtitle: "Teams" },
+    { title: "Marketing", subtitle: "Growth" },
+    { title: "Career", subtitle: "Outcomes" },
+  ];
+
   return (
     <div
       className="relative grid h-[min(420px,60vh)] w-[min(420px,60vw)] grid-cols-3 grid-rows-3 gap-3"
       aria-hidden="true"
     >
-      {Array.from({ length: 9 }).map((_, i) => (
+      {tiles.map((tile, i) => (
         <div
-          key={i}
+          key={tile.title}
           data-browse-card
-          className="rounded-md border border-[var(--fog)]"
+          className="flex flex-col justify-between rounded-md border border-[var(--fog)] p-3"
           style={{
             background:
               i % 3 === 0
@@ -338,7 +350,20 @@ function BrowseIllustration() {
                   ? "linear-gradient(135deg, #d4a574 0%, #1a1a24 100%)"
                   : "linear-gradient(135deg, #1a1a24 0%, #5b6cff 100%)",
           }}
-        />
+        >
+          <span
+            className="text-[10px] uppercase tracking-[0.18em]"
+            style={{ color: "rgba(255,255,255,0.72)" }}
+          >
+            {tile.subtitle}
+          </span>
+          <span
+            className="display text-xl leading-none"
+            style={{ color: "var(--text-primary)" }}
+          >
+            {tile.title}
+          </span>
+        </div>
       ))}
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useScrollStore } from "@/components/providers/ScrollStore";
 import { Button } from "./Button";
 
@@ -20,9 +20,16 @@ export function TopNav() {
   const scrollY = useScrollStore((s) => s.scrollY);
   const theme = useScrollStore((s) => s.theme);
   const [visible, setVisible] = useState(false);
+  const [logoKey, setLogoKey] = useState(0);
+  const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
-    setVisible(scrollY > window.innerHeight * 0.6);
+    const isVisible = scrollY > window.innerHeight * 0.6;
+    setVisible(isVisible);
+    if (isVisible && !hasAnimatedRef.current) {
+      hasAnimatedRef.current = true;
+      setLogoKey((k) => k + 1);
+    }
   }, [scrollY]);
 
   const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -65,9 +72,10 @@ export function TopNav() {
         aria-label="Primary"
       >
         <a
+          key={logoKey}
           href="#chapter-gate"
           onClick={(e) => handleNav(e, "#chapter-gate")}
-          className="display text-xl tracking-tight"
+          className={`display text-xl tracking-tight${logoKey > 0 ? " logo-appear" : ""}`}
           style={{
             color: theme === "paper" ? "var(--gold-dark)" : "var(--gold-bright)",
           }}

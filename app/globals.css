@@ -215,3 +215,38 @@ html[data-grid="1"]::after {
   text-align: center;
   padding: 8rem 2rem;
 }
+
+/* ─── Marquee (ChapterTestimonials) ─── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-rev {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1.25rem;
+}
+.animate-marquee     { animation: marquee     35s linear infinite; }
+.animate-marquee-rev { animation: marquee-rev 35s linear infinite; }
+
+/* ─── Ken Burns (ChapterInstructorSpotlight) ─── */
+@keyframes ken-burns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+.animate-ken-burns {
+  animation: ken-burns 12s ease-in-out infinite alternate;
+}
+
+/* ─── Logo appear (TopNav) ─── */
+@keyframes logo-appear {
+  from { opacity: 0; transform: translateY(-6px) scale(0.94); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.logo-appear {
+  animation: logo-appear 0.65s var(--ease-premium) both;
+}

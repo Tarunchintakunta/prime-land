@@ -85,16 +85,16 @@ export function Chapter5Courses() {
     <section
       ref={rootRef}
       id="chapter-courses"
-      className="relative w-full px-6 py-32 lg:px-16"
+      className="relative w-full px-4 py-24 sm:px-6 lg:px-16 lg:py-32"
       style={{ backgroundColor: "var(--ink)" }}
       aria-label="Courses"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl rounded-[2rem] border border-[var(--fog)]/60 bg-[rgba(255,255,255,0.02)] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-7 lg:p-10">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
             <Eyebrow>What to study</Eyebrow>
             <h2
-              className="display mt-3 max-w-[16ch]"
+              className="display mt-3 max-w-[18ch]"
               style={{ fontSize: "clamp(2rem, 5.5vw, 4.25rem)", color: "var(--text-primary)" }}
             >
               Courses built with <em className="italic text-[var(--gold)]">intent</em>.
@@ -110,7 +110,7 @@ export function Chapter5Courses() {
         </div>
 
         {/* Tabs */}
-        <div className="relative mt-12 flex gap-8 border-b border-[var(--fog)]">
+        <div className="relative mt-12 flex gap-6 overflow-x-auto border-b border-[var(--fog)] pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {CATEGORIES.map((cat, i) => (
             <button
               key={cat}
@@ -118,7 +118,7 @@ export function Chapter5Courses() {
                 tabRefs.current[i] = el;
               }}
               onClick={() => setActiveIdx(i)}
-              className={`relative py-4 text-sm uppercase tracking-[0.2em] transition-colors duration-300 ${
+              className={`relative shrink-0 py-4 text-sm uppercase tracking-[0.2em] transition-colors duration-300 ${
                 i === activeIdx
                   ? "text-[var(--text-primary)]"
                   : "text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]"
@@ -138,13 +138,13 @@ export function Chapter5Courses() {
         {/* Grid */}
         <div
           ref={cardsRef}
-          className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+          className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:mt-14 lg:grid-cols-4"
         >
           {courses.map((c) => (
             <article
               key={c.title}
               data-card
-              className="group flex flex-col overflow-hidden rounded-xl border border-[var(--fog)] bg-[var(--mist)] transition-all duration-500 hover:border-[var(--gold)]/50 hover:-translate-y-1"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-[var(--fog)]/80 bg-[var(--mist)] shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-all duration-500 hover:-translate-y-1.5 hover:border-[var(--gold)]/60 hover:shadow-[0_20px_45px_rgba(0,0,0,0.28)]"
             >
               <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--mist)]">
                 {/* Photo layer — scales subtly on hover per PRD */}
@@ -186,8 +186,8 @@ export function Chapter5Courses() {
                   <p className="mt-2 text-sm" style={{ color: "var(--text-secondary)" }}>{c.instructor}</p>
                 </div>
                 <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em]" style={{ color: "var(--text-tertiary)" }}>
-                  <span>{c.duration}</span>
-                  <span className="text-[var(--gold-bright)]">AED {c.priceAed.toLocaleString()}</span>
+                  <span className="rounded-full border border-[var(--fog)]/70 px-3 py-1">{c.duration}</span>
+                  <span className="rounded-full bg-[var(--gold)]/15 px-3 py-1 text-[var(--gold-bright)]">AED {c.priceAed.toLocaleString()}</span>
                 </div>
               </div>
             </article>

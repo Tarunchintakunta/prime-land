@@ -145,7 +145,7 @@ export function Chapter4Categories() {
       <div className="absolute left-8 top-16 z-10 lg:left-24">
         <Eyebrow onPaper>Seven categories</Eyebrow>
         <h2
-          className="display mt-3 max-w-[18ch]"
+          className="display mt-3 whitespace-nowrap"
           style={{
             fontSize: "clamp(1.75rem, 4.5vw, 3.5rem)",
             color: "var(--text-primary-ink)",
@@ -155,7 +155,7 @@ export function Chapter4Categories() {
         </h2>
       </div>
 
-      <div className="absolute inset-0 flex items-center">
+      <div className="absolute inset-0 flex items-center pt-[clamp(8rem,18vh,12rem)]">
         <div
           ref={trackRef}
           className="flex items-stretch gap-[clamp(1rem,2vw,2rem)] pl-[clamp(1rem,4vw,4rem)] pr-[clamp(1rem,4vw,4rem)]"
