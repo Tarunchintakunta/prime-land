@@ -13,14 +13,16 @@ import { gsap, registerGsap } from "@/lib/gsap";
  */
 export function Loader() {
   const overlayRef = useRef<HTMLDivElement>(null);
+  const logoWrapRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLSpanElement>(null);
   const [done, setDone] = useState(false);
 
   useEffect(() => {
     registerGsap();
     const overlay = overlayRef.current;
+    const logoWrap = logoWrapRef.current;
     const line = lineRef.current;
-    if (!overlay || !line) return;
+    if (!overlay || !logoWrap || !line) return;
 
     // Honor prefers-reduced-motion — skip the theater, show content.
     const reduced = window.matchMedia?.(
@@ -41,14 +43,38 @@ export function Loader() {
     fontsReady.then(() => {
       tl = gsap.timeline();
       tl.fromTo(
+        logoWrap,
+        { opacity: 0, y: 14, scale: 0.96, filter: "blur(6px)" },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          filter: "blur(0px)",
+          duration: 0.9,
+          ease: "expo.out",
+        }
+      );
+      tl.to(
+        logoWrap,
+        {
+          filter: "drop-shadow(0 0 22px rgba(224,180,88,0.33))",
+          duration: 0.6,
+          ease: "sine.inOut",
+          yoyo: true,
+          repeat: 1,
+        },
+        "-=0.15"
+      );
+      tl.fromTo(
         line,
         { scaleX: 0 },
         {
           scaleX: 1,
-          duration: 1.4,
+          duration: 1.2,
           ease: "expo.out",
           transformOrigin: "left",
-        }
+        },
+        "-=0.2"
       );
       tl.to(overlay, {
         opacity: 0,
@@ -76,14 +102,16 @@ export function Loader() {
       aria-hidden="true"
       className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[var(--ink)]"
     >
-      <Image
-        src="/brand/logo-dark.svg"
-        alt="Prime Learning"
-        width={260}
-        height={64}
-        className="h-12 w-auto"
-        priority
-      />
+      <div ref={logoWrapRef} className="will-change-transform">
+        <Image
+          src="/brand/logo-dark.svg"
+          alt="Prime Learning"
+          width={304}
+          height={100}
+          className="h-[75px] w-auto"
+          priority
+        />
+      </div>
       <div className="mt-8 h-px w-[min(320px,60vw)] overflow-hidden bg-white/10">
         <span
           ref={lineRef}
