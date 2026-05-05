@@ -22,9 +22,9 @@ export function FallbackHero() {
       <svg viewBox="-1.2 -1.2 2.4 2.4" className="portal-fallback">
         <defs>
           <radialGradient id="ico-fill" cx="0.5" cy="0.5" r="0.5">
-            <stop offset="0%" stopColor="#5b6cff" stopOpacity="0.85" />
-            <stop offset="60%" stopColor="#d4a574" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#0a0a0f" stopOpacity="0" />
+            <stop offset="0%" stopColor="#2563eb" stopOpacity="0.85" />
+            <stop offset="60%" stopColor="#e0b458" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#0a192f" stopOpacity="0" />
           </radialGradient>
         </defs>
         {/* A stylized icosahedral hint — triangle fan around the origin */}
@@ -38,7 +38,7 @@ export function FallbackHero() {
               key={i}
               points={`0,0 ${Math.cos(a) * r1},${Math.sin(a) * r1} ${Math.cos(b) * r2},${Math.sin(b) * r2}`}
               fill="url(#ico-fill)"
-              stroke="#d4a574"
+              stroke="#e0b458"
               strokeOpacity="0.25"
               strokeWidth="0.005"
             />

@@ -4,46 +4,59 @@
    Design tokens — Prime Learning
    --------------------------------------------------------- */
 @theme {
-  --color-ink: #0a0a0f;
-  --color-paper: #f5f2eb;
-  --color-gold: #d4a574;
-  --color-gold-bright: #e8c290;
-  --color-gold-dark: #8a6a3e;
-  --color-gold-soft: #e6c9a3;
-  --color-electric: #7b8bff;
-  --color-mist: #1a1a24;
-  --color-fog: rgba(255, 255, 255, 0.08);
+  --color-ink: #0a192f;
+  --color-paper: #fffcf5;
+  --color-gold: #e0b458;
+  --color-gold-bright: #f2d184;
+  --color-gold-dark: #e0b458;
+  --color-gold-soft: #f2d184;
+  --color-electric: #2563eb;
+  --color-mist: #112240;
+  --color-fog: #1e293b;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-instrument-serif), ui-serif, Georgia, serif;
 }
 
 :root {
-  --ink: #0a0a0f;
-  --paper: #f5f2eb;
+  --ink: #0a192f;
+  --paper: #fffcf5;
 
   /* Two-tier gold system.
      --gold is DISPLAY-ONLY: headlines, large numerals, decorative lines. At
      body-text sizes on --ink it fails AA, so use --gold-bright instead.
      --gold-dark is the paper-bg counterpart for body-size gold on cream. */
-  --gold: #d4a574;
-  --gold-bright: #e8c290; /* body + UI on ink — passes AA on --ink */
-  --gold-dark: #8a6a3e;   /* body + UI on paper — passes AA on --paper */
-  --gold-soft: #e6c9a3;   /* primary-button hover shade */
+  --gold: #e0b458;
+  --gold-bright: #f2d184;
+  --gold-dark: #e0b458;
+  --gold-soft: #f2d184;
 
-  --electric: #7b8bff;
-  --mist: #1a1a24;
-  --fog: rgba(255, 255, 255, 0.08);
+  --electric: #2563eb;
+  --mist: #112240;
+  --mist-alt: #0e1726;
+  --fog: #1e293b;
 
-  /* Text tiers — use these instead of pure white. Cream-tinted, less harsh. */
-  --text-primary: #f5f2eb;
-  --text-secondary: rgba(245, 242, 235, 0.72);
-  --text-tertiary: rgba(245, 242, 235, 0.48);
+  /* Dark theme text */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #94a3b8;
 
-  /* Paper-context text tiers (inverted). */
-  --text-primary-ink: #0a0a0f;
-  --text-secondary-ink: rgba(10, 10, 15, 0.68);
-  --text-tertiary-ink: rgba(10, 10, 15, 0.48);
+  /* Light theme text */
+  --text-primary-ink: #1c1917;
+  --text-secondary-ink: #78716c;
+  --text-tertiary-ink: #78716c;
+
+  /* Light theme surfaces */
+  --paper-card: #ffffff;
+  --paper-muted: #f5f0e6;
+  --paper-border: #e6e1d6;
+
+  /* Status colors */
+  --status-live: #ff6b6b;
+  --status-success: #10b981;
+  --status-warning: #f59e0b;
+  --status-destructive-light: #ef4444;
+  --status-destructive-dark: #7f1d1d;
 
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
 }

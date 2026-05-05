@@ -52,8 +52,8 @@ export function Chapter2Manifesto() {
     const words = wordsRef.current.filter(Boolean) as HTMLSpanElement[];
     const underlines = underlinesRef.current.filter(Boolean) as HTMLSpanElement[];
 
-    // Set initial state — dim, and underlines collapsed.
-    gsap.set(words, { opacity: 0.12 });
+    // Keep unrevealed words readable while preserving the reveal effect.
+    gsap.set(words, { opacity: 0.42 });
     gsap.set(underlines, { scaleX: 0, transformOrigin: "left center" });
 
     // Master scroll-linked timeline: as the user scrolls through the section,
@@ -68,7 +68,7 @@ export function Chapter2Manifesto() {
     });
 
     words.forEach((w, i) => {
-      tl.to(w, { opacity: 1, duration: 0.15, ease: "none" }, i * 0.08);
+      tl.to(w, { opacity: 1, duration: 0.15, ease: "none" }, i * 0.06);
     });
     underlines.forEach((u) => {
       tl.to(u, { scaleX: 1, duration: 0.4, ease: "none" }, "<");
@@ -102,7 +102,12 @@ export function Chapter2Manifesto() {
       <div className="mx-auto max-w-5xl">
         <p
           className="headline"
-          style={{ fontSize: "clamp(2rem, 5.5vw, 4.75rem)", lineHeight: 1.18, color: "var(--text-primary)" }}
+          style={{
+            fontSize: "clamp(2rem, 5.5vw, 4.75rem)",
+            lineHeight: 1.18,
+            color: "var(--text-primary)",
+            textShadow: "0 1px 14px rgba(10,25,47,0.35)",
+          }}
         >
           {tokens.map((t, i) => {
             const isSpace = /^\s+$/.test(t.text);

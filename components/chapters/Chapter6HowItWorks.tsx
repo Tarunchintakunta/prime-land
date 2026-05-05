@@ -9,7 +9,7 @@ const STEPS = [
   {
     title: "Browse",
     blurb:
-      "Start with the catalog. Filter by career stage, commitment, or category — every course has a clear outcome attached.",
+      "Start with the catalog. Filter by career stage, commitment, or category. Every course has a clear outcome attached.",
   },
   {
     title: "Enroll",

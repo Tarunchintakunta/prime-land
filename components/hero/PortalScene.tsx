@@ -120,7 +120,7 @@ function SceneInterior({ mode, source }: Required<Props>) {
           A giant dark sphere behind the particles with a lit bottom. */}
       <mesh position={[0, 0, -8]}>
         <planeGeometry args={[40, 24]} />
-        <meshBasicMaterial color="#0a0a0f" />
+        <meshBasicMaterial color="#0a192f" />
       </mesh>
 
       <ParticleIcosahedron mode={mode} count={8000} />

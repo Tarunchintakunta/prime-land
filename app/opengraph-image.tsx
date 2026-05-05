@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 export const alt =
-  "Prime Learning — Learn Smarter. Grow Faster. Lead With Purpose.";
+  "Prime Learning: Learn Smarter. Grow Faster. Lead With Purpose.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

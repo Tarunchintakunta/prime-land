@@ -71,7 +71,7 @@ export function ChapterStub({
           className="body-lg mt-4"
           style={{ color: textOnDark ? "rgba(245,242,235,0.6)" : "rgba(10,10,15,0.55)" }}
         >
-          Stub — this chapter is finalized in Pass 2.
+          Stub: this chapter is finalized in Pass 2.
         </p>
       </div>
     </section>

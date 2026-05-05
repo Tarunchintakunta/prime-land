@@ -42,7 +42,7 @@ const ROW_A: Quote[] = [
     name: "Sara Okafor",
     role: "Data Lead · Wise",
     avatar: "https://i.pravatar.cc/80?img=44",
-    text: "The certificate actually meant something — recruiters at three of my interviews recognized it.",
+    text: "The certificate actually meant something. Recruiters at three of my interviews recognized it.",
   },
 ];
 
@@ -57,7 +57,7 @@ const ROW_B: Quote[] = [
     name: "Ben Carter",
     role: "iOS Dev · Spotify",
     avatar: "https://i.pravatar.cc/80?img=33",
-    text: "Polished without being hollow. Every lesson assumes you have taste — and respects your time.",
+    text: "Polished without being hollow. Every lesson assumes you have taste and respects your time.",
   },
   {
     name: "Mei-Ling Zhao",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Button } from "./Button";
 import { Eyebrow } from "./Eyebrow";
 
@@ -27,7 +28,13 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 md:grid-cols-[2fr_3fr_2fr]">
         {/* Logo column */}
         <div>
-          <span className="display text-2xl text-[var(--gold-bright)]">Prime Learning</span>
+          <Image
+            src="/brand/logo-dark.svg"
+            alt="Prime Learning"
+            width={220}
+            height={56}
+            className="h-10 w-auto"
+          />
           <p className="body-lg mt-4 max-w-xs">
             Learn Smarter. Grow Faster. Lead With Purpose.
           </p>

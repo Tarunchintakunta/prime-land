@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { gsap, registerGsap } from "@/lib/gsap";
 
 /**
@@ -75,12 +76,14 @@ export function Loader() {
       aria-hidden="true"
       className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[var(--ink)]"
     >
-      <span
-        className="display text-2xl tracking-tight text-[var(--gold)]"
-        style={{ textShadow: "0 0 40px rgba(212,165,116,0.3)" }}
-      >
-        Prime Learning
-      </span>
+      <Image
+        src="/brand/logo-dark.svg"
+        alt="Prime Learning"
+        width={260}
+        height={64}
+        className="h-12 w-auto"
+        priority
+      />
       <div className="mt-8 h-px w-[min(320px,60vw)] overflow-hidden bg-white/10">
         <span
           ref={lineRef}

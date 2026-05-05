@@ -27,9 +27,10 @@ const SITE_URL = "https://primelearning.ae";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  manifest: "/manifest.json",
   title: {
-    default: "Prime Learning — Learn Smarter. Grow Faster. Lead With Purpose.",
-    template: "%s — Prime Learning",
+    default: "Prime Learning: Learn Smarter. Grow Faster. Lead With Purpose.",
+    template: "%s | Prime Learning",
   },
   description:
     "Premium e-learning for ambitious professionals. Courses across Business, Technology, Finance, Design, and more. Made in Dubai.",
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     "business school admissions",
   ],
   openGraph: {
-    title: "Prime Learning — Learn Smarter. Grow Faster. Lead With Purpose.",
+    title: "Prime Learning: Learn Smarter. Grow Faster. Lead With Purpose.",
     description:
       "Premium e-learning for ambitious professionals. Made in Dubai.",
     url: SITE_URL,
@@ -57,6 +58,15 @@ export const metadata: Metadata = {
     description:
       "Premium e-learning for ambitious professionals. Made in Dubai.",
   },
+  icons: {
+    icon: [
+      { url: "/icons/icon.svg", type: "image/svg+xml" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" }],
+    shortcut: ["/icons/icon.svg"],
+  },
   robots: {
     index: true,
     follow: true,
@@ -66,7 +76,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0f",
+  themeColor: "#0a192f",
   colorScheme: "dark light",
 };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { useScrollStore } from "@/components/providers/ScrollStore";
 import { Button } from "./Button";
 
@@ -58,14 +59,14 @@ export function TopNav() {
         Skip to content
       </a>
       <nav
-        className={`fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-5 transition-all duration-500 lg:px-12 ${
+        className={`fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-4 transition-all duration-500 lg:px-12 lg:py-5 ${
           visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
         }`}
         style={{
           background:
             theme === "paper"
-              ? "linear-gradient(to bottom, rgba(245,242,235,0.85), rgba(245,242,235,0))"
-              : "linear-gradient(to bottom, rgba(10,10,15,0.85), rgba(10,10,15,0))",
+              ? "linear-gradient(to bottom, rgba(255,252,245,0.88), rgba(255,252,245,0))"
+              : "linear-gradient(to bottom, rgba(10,25,47,0.88), rgba(10,25,47,0))",
           backdropFilter: "blur(10px)",
           color: theme === "paper" ? "var(--ink)" : "white",
         }}
@@ -75,12 +76,25 @@ export function TopNav() {
           key={logoKey}
           href="#chapter-gate"
           onClick={(e) => handleNav(e, "#chapter-gate")}
-          className={`display text-xl tracking-tight${logoKey > 0 ? " logo-appear" : ""}`}
-          style={{
-            color: theme === "paper" ? "var(--gold-dark)" : "var(--gold-bright)",
-          }}
+          className={`inline-flex items-center${logoKey > 0 ? " logo-appear" : ""}`}
+          aria-label="Prime Learning home"
         >
-          Prime Learning
+          <Image
+            src={theme === "paper" ? "/brand/logo-square.svg" : "/brand/logo-square-dark.svg"}
+            alt="Prime Learning"
+            width={44}
+            height={44}
+            className="h-11 w-11 md:hidden"
+            priority
+          />
+          <Image
+            src={theme === "paper" ? "/brand/logo.svg" : "/brand/logo-dark.svg"}
+            alt="Prime Learning"
+            width={340}
+            height={86}
+            className="hidden h-14 w-auto md:block lg:h-16"
+            priority
+          />
         </a>
         <ul className="hidden gap-8 text-sm md:flex">
           {LINKS.map((l) => (
