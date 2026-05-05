@@ -114,7 +114,7 @@ export function Chapter1Gate() {
       {/* Vignette — keeps hero text legible over the particle cloud. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(10,10,15,0.7)_80%,rgba(10,10,15,0.95)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_42%,rgba(10,25,47,0.42)_80%,rgba(10,25,47,0.68)_100%)]"
       />
 
       {/* Hero content */}

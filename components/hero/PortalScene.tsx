@@ -33,6 +33,20 @@ export function PortalScene({ mode = "idle", source = "portal" }: Props) {
   const [canRender, setCanRender] = useState<boolean | null>(null);
 
   useEffect(() => {
+    const hasWebglSupport = (() => {
+      try {
+        const canvas = document.createElement("canvas");
+        const gl2 = canvas.getContext("webgl2");
+        const gl =
+          gl2 ??
+          canvas.getContext("webgl") ??
+          canvas.getContext("experimental-webgl");
+        return !!gl;
+      } catch {
+        return false;
+      }
+    })();
+
     const prefersReduced = window.matchMedia?.(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -41,7 +55,7 @@ export function PortalScene({ mode = "idle", source = "portal" }: Props) {
       (navigator.hardwareConcurrency ?? 4) < 4;
     const forceFallback = new URL(window.location.href).searchParams.get("nowebgl") === "1";
 
-    if (prefersReduced || lowCore || forceFallback) {
+    if (!hasWebglSupport || prefersReduced || lowCore || forceFallback) {
       document.body.classList.add("no-webgl");
       setCanRender(false);
     } else {

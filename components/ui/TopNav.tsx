@@ -82,17 +82,17 @@ export function TopNav() {
           <Image
             src={theme === "paper" ? "/brand/logo-square.svg" : "/brand/logo-square-dark.svg"}
             alt="Prime Learning"
-            width={44}
-            height={44}
-            className="h-11 w-11 md:hidden"
+            width={70}
+            height={70}
+            className="h-[70px] w-[70px] md:hidden"
             priority
           />
           <Image
             src={theme === "paper" ? "/brand/logo.svg" : "/brand/logo-dark.svg"}
             alt="Prime Learning"
-            width={340}
-            height={86}
-            className="hidden h-14 w-auto md:block lg:h-16"
+            width={544}
+            height={138}
+            className="hidden h-[90px] w-auto md:block lg:h-[102px]"
             priority
           />
         </a>
